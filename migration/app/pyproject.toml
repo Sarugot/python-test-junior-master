@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "Betuple Test Api"
+version = "0.0.1"
+description = ""
+authors = ["Betuple"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.9.1"
+SQLAlchemy = "^1.4.39"
+psycopg2 = "^2.9.5"
+alembic = "^1.8.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

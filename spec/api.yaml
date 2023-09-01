@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: BETUPLE PYTHON TEST JUNIOR API
+  version: 0.0.1
+servers:
+  - url: /api/v1
+paths:
+  /event:
+    post:
+      tags:
+        - Events
+      summary: create event
+      description: using user ip address a new event is created
+      responses:
+        '201':
+          description: new user event was created
+        '400':
+          description: Bad request, for any other error. Error reason in logs.
+    get:
+      tags:
+        - Events
+      summary: show events
+      description: show the last 5 user events
+      responses:
+        '200':
+          description: returns a list of user events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserEvent"
+        '400':
+          description: Bad request, for any other error. Error reason in logs.
+components:
+  schemas:
+    UserEvent:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        eventTime:
+          type: string
+          description: the time when event was created
+        userIpAddress:
+          type: string
