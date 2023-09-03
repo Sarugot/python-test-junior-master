@@ -10,6 +10,11 @@ class AlgorithmPermission(permissions.BasePermission):
             return True
         ip = get_client_ip(request)
         lst = list(map(int, ip.replace('.', '')))
-        odds = [i for i in lst if i % 2]
-        evens = [i for i in lst if not i % 2]
+        odds = []
+        evens = []
+        for i in lst:
+            if i % 2:
+                odds.append(i)
+            else:
+                evens.append(i)
         return len(odds) == len(evens)

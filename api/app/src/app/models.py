@@ -8,7 +8,7 @@ from src.init_database import Base
 
 
 class UserEvent(Base):
-    __tablename__ = 'Events'
+    __tablename__ = 'events'
 
     id = Column(
         UUID(as_uuid=True),
